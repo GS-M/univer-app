@@ -7,16 +7,9 @@ class Univers extends React.Component {
         super(props)
     }
     componentDidMount(){
-        UniversAPI.getUnivers()
-        .then(response => response.json())
-        .then((university) => {
-
-            this.props.setUnivers(university.data)
-
-        })
+        this.props.getUniversThunk()
     }
 
-    // Эт можно вынести в отдельную компоненту Univer
     render() {
         return <div>
             <Univer university={this.props.university}/>
