@@ -1,12 +1,13 @@
 import React from 'react';
 import Univer  from './Univer';
+import { UniversAPI } from '../api/api';
 
 class Univers extends React.Component {
     constructor(props) {
         super(props)
     }
     componentDidMount(){
-        fetch("https://grnl.herokuapp.com/university")
+        UniversAPI.getUnivers()
         .then(response => response.json())
         .then((university) => {
 
