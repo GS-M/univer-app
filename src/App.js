@@ -1,7 +1,8 @@
 import React from 'react';
-import {Header} from './component/Header';
-import AddUniver from './component/AddUniver';
-import UniversContainer from './component/UniversContainer';
+import {Header} from './components/Header';
+import AddUniver from './components/AddUniversity';
+import UniversContainer from './components/UniversContainer';
+import AddUniversity from './components/AddUniversity';
 
 
 
@@ -10,7 +11,7 @@ function App(props) {
     <div className="App">
       <Header />
       <UniversContainer />
-      {/* <AddUniver /> */}
+      <AddUniversity />
     </div>
   );
 }
