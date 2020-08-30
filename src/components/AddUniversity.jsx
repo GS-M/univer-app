@@ -1,6 +1,7 @@
 import React from 'react';
-import { rerender } from '..';
 import { UniversAPI } from '../api/api';
+import {addUniversityThunk} from '../redux/univers-reducer'
+import { connect } from 'react-redux';
 
 // function AddUniver() {
 //     let takeName = React.createRef();
@@ -65,7 +66,7 @@ class AddUniversity extends React.Component {
             return alert("Заполните все поля")
         }
         alert('Добавилось')
-        UniversAPI.addNewUniver(this.state.takeName, this.state.takePrice, this.state.takePaid, this.state.takeBudget, this.state.takeMinPaid, this.state.takeMinBudget, this.state.takeForeign)
+        this.props.addUniversityThunk(this.state.takeName, this.state.takePrice, this.state.takePaid, this.state.takeBudget, this.state.takeMinPaid, this.state.takeMinBudget, this.state.takeForeign)
     }
 
     render() {
@@ -85,4 +86,6 @@ class AddUniversity extends React.Component {
     }
 }
 
-export default AddUniversity;
+export default connect(null,{addUniversityThunk})(AddUniversity);
+// Addddd
+
