@@ -35,3 +35,12 @@ export const getUniversThunk = () => {
             })
     }
 }
+
+export const addUniversityThunk = (name, price, paidPlaces, budgetPlaces, minPaidScore, minBudgetScore, foreignPlaces) => {
+    return (dispatch) => {
+        UniversAPI.addNewUniver(name, price, paidPlaces, budgetPlaces, minPaidScore, minBudgetScore, foreignPlaces)
+            .then(() => {
+                dispatch(getUniversThunk())
+            })
+    }
+}
