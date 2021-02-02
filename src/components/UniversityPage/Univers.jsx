@@ -1,7 +1,7 @@
 import React from 'react';
 import Univer from './Univer';
 import AddUniversity from './AddUniversity';
-import { Header } from './Header';
+import Header from './Header';
 
 class Univers extends React.Component {
     componentDidMount() {
@@ -16,7 +16,7 @@ class Univers extends React.Component {
                 this.props.university.map(uni => <Univer uni={uni} key={uni.id}
                     getCurrentUniverThunk={this.props.getCurrentUniverThunk} />)
             }
-            <AddUniversity />
+            <AddUniversity addUniversityThunk={this.props.addUniversityThunk} />
         </div>)
     }
 }

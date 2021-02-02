@@ -1,6 +1,4 @@
 import React from 'react';
-import { addUniversityThunk } from '../../redux/univers-reducer'
-import { connect } from 'react-redux';
 
 class AddUniversity extends React.Component {
     constructor(props) {
@@ -48,6 +46,6 @@ class AddUniversity extends React.Component {
     }
 }
 
-export default connect(null, { addUniversityThunk })(AddUniversity);
-// Addddd
+export default AddUniversity;
+
 

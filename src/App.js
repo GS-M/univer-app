@@ -5,9 +5,6 @@ import { Route } from 'react-router-dom';
 import Preloader from './components/Preloader/Preloader';
 import CurrentStudent from './components/CurrentStudent/CurrentStudent';
 
-
-///
-
 class App extends React.Component {
 
   render() {
