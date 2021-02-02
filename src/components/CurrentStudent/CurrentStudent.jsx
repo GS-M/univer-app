@@ -1,10 +1,6 @@
 import React from 'react';
 
 class CurrentStudent extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
             <div>

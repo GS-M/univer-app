@@ -1,4 +1,3 @@
-
 import University from "../classUniversity"
 import { UniversAPI } from "../api/api";
 let initialState = {
@@ -13,17 +12,13 @@ let initialState = {
     currentUniverMinBudgetScore: 'null',
     currentUniverForeignPlaces: 'null',
     currentUniverId: 'null',
-    ///
     firstPage: true
 }
 
 const universReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SET_UNIVERS':
-
-            //for(let i =0; i<action.univers.length;i++)
             let newObject = action.univers.map((arr) => (arr = new University(arr.budget_places, arr.foreign_places, arr.id, arr.min_budget_score, arr.min_paid_score, arr.name, arr.paid_places, arr.price)))
-
             state.university = newObject
             return {
                 ...state,
@@ -81,6 +76,3 @@ export const getCurrentUniverThunk = (univerId) => {
             })
     }
 }
-
-
-// Буууууууул

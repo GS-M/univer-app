@@ -1,7 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
-
 
 class Univer extends React.Component {
     constructor(props) {
@@ -38,4 +36,3 @@ class Univer extends React.Component {
 }
 
 export default Univer;
-///

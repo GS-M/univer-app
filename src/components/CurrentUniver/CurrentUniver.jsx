@@ -3,10 +3,6 @@ import { NavLink } from 'react-router-dom';
 import StudentsList from './StudentsList';
 
 class CurrentUniver extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
             <div>
@@ -23,7 +19,7 @@ class CurrentUniver extends React.Component {
                 </ul>
                 <p>Обучающиеся студенты:</p>
                 {
-                    this.props.infoStudents.map(stud => <StudentsList name={stud.name} id={stud.id} key={stud.id}/>)
+                    this.props.infoStudents.map(stud => <StudentsList name={stud.name} id={stud.id} key={stud.id} />)
                 }
             </div>
         )

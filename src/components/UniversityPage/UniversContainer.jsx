@@ -1,7 +1,6 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import Univers from './Univers';
-import { setUniversAC, getUniversThunk, getCurrentUniverThunk } from '../../redux/univers-reducer';
+import { getUniversThunk, getCurrentUniverThunk } from '../../redux/univers-reducer';
 
 
 let mapStateToProps = (state) => {
