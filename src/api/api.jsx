@@ -10,5 +10,9 @@ export const UniversAPI = {
             method: "POST"
         })
         )
+    },
+
+    showUniver: (UniverId) => {
+        return (fetch(`https://grnl.herokuapp.com/university?id=${UniverId}`))
     }
 }

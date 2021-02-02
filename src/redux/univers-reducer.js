@@ -1,10 +1,20 @@
-import { act } from "react-dom/test-utils";
+
 import University from "../classUniversity"
 import { UniversAPI } from "../api/api";
 let initialState = {
-    university: [
+    university: [],
+    studentsIncurrentUni: [],
 
-    ]
+    currentUniverName: 'null',
+    currentUniverPrice: 'null',
+    currentUniverPaidPlaces: 'null',
+    currentUniverBudgetPlaces: 'null',
+    currentUniverMinPaidScore: 'null',
+    currentUniverMinBudgetScore: 'null',
+    currentUniverForeignPlaces: 'null',
+    currentUniverId: 'null',
+    ///
+    firstPage: true
 }
 
 const universReducer = (state = initialState, action) => {
@@ -19,12 +29,27 @@ const universReducer = (state = initialState, action) => {
                 ...state,
                 university: [...state.university]
             };
+        case 'GET-CURRENT-UNIVERS-DATA':
+            return {
+                ...state,
+                studentsIncurrentUni: [...action.students],
+                currentUniverName: action.name,
+                currentUniverPrice: action.price,
+                currentUniverPaidPlaces: action.paidPlaces,
+                currentUniverBudgetPlaces: action.budgetPlaces,
+                currentUniverMinPaidScore: action.minPaidScore,
+                currentUniverMinBudgetScore: action.minBudgetScore,
+                currentUniverForeignPlaces: action.foreignPlaces
+            }
         default: return state;
     }
 }
 
 export default universReducer;
 export const setUniversAC = (univers) => ({ type: 'SET_UNIVERS', univers })
+export const getCurrentUniverAC = (name, price, paidPlaces, budgetPlaces, minPaidScore, minBudgetScore, foreignPlaces, students) => ({
+    type: 'GET-CURRENT-UNIVERS-DATA', name, price, paidPlaces, budgetPlaces, minPaidScore, minBudgetScore, foreignPlaces, students
+})
 
 export const getUniversThunk = () => {
     return (dispatch) => {
@@ -44,3 +69,18 @@ export const addUniversityThunk = (name, price, paidPlaces, budgetPlaces, minPai
             })
     }
 }
+
+export const getCurrentUniverThunk = (univerId) => {
+    return (dispatch) => {
+        UniversAPI.showUniver(univerId)
+            .then(response => response.json())
+            .then((univer) => {
+                dispatch(getCurrentUniverAC(univer.data.name, univer.data.price, univer.data.paid_places,
+                    univer.data.budget_places, univer.data.min_paid_score, univer.data.min_budget_score,
+                    univer.data.foreign_places, univer.data.students))
+            })
+    }
+}
+
+
+// Буууууууул

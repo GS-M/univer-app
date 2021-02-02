@@ -1,6 +1,6 @@
 import React from 'react';
-import { UniversAPI } from '../api/api';
-import {addUniversityThunk} from '../redux/univers-reducer'
+import { UniversAPI } from '../../api/api';
+import {addUniversityThunk} from '../../redux/univers-reducer'
 import { connect } from 'react-redux';
 
 // function AddUniver() {
