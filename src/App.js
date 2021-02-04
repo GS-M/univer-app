@@ -4,13 +4,14 @@ import CurrentUniverContainer from './components/CurrentUniver/CurrentUniverCont
 import { Route } from 'react-router-dom';
 import Preloader from './components/Preloader/Preloader';
 import CurrentStudentContainer from './components/CurrentStudent/CurrentStudentContainer';
+import './styles/css/style.css'
 
 class App extends React.Component {
 
   render() {
     return (
       <div className="App">
-        <Preloader/>
+        <Preloader />
         <Route path='/university' render={() => (<UniversContainer />)} />
         <Route path='/currentUni' render={() => (<CurrentUniverContainer />)} />
         <Route path='/currentStudent' render={() => (<CurrentStudentContainer />)} />

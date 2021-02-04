@@ -11,7 +11,7 @@ class Univers extends React.Component {
     render() {
         return (<div>
             <Header />
-            <h2 className="22" id="begin">Список университетов:</h2>
+            <h2 className="univer-list" id="begin">Список университетов:</h2>
             {
                 this.props.university.map(uni => <Univer uni={uni} key={uni.id}
                     getCurrentUniverThunk={this.props.getCurrentUniverThunk} />)

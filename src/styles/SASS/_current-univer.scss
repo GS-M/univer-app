@@ -1,0 +1,29 @@
+.current-univer {
+   a {
+      font-size: 20px;
+      padding: 6px;
+      color: rgb(235, 162, 53);
+      &:hover {
+         color: rgb(72, 122, 21);
+      }
+   }
+}
+
+.current-univer__name {
+   font-size: 30px;
+   font-style: italic;
+   color: rgb(87, 80, 94);
+   padding: 5px;
+   margin: 20px 0px;
+}
+.current-univer__title {
+   margin: 10px 0px;
+}
+.current-univer__info {
+   font-size: 20px;
+   line-height: 30px;
+}
+.current-univer__student{
+   padding: 5px;
+   color: darkblue;
+}

@@ -12,6 +12,7 @@ let initialState = {
     currentUniverMinBudgetScore: 'null',
     currentUniverForeignPlaces: 'null',
     currentUniverId: 'null',
+    isLoading: false,
     firstPage: true,
     currentStudentIndex: 0
 }
@@ -42,6 +43,21 @@ const universReducer = (state = initialState, action) => {
                 ...state,
                 currentStudentIndex: action.index
             }
+        case 'ON_LOADING':
+            return {
+                ...state,
+                isLoading: true
+            }
+        case 'OFF_LOADING':
+            return {
+                ...state,
+                isLoading: false
+            }
+        case 'FIRST_PAGE':
+            return {
+                ...state,
+                firstPage: false
+            }
         default: return state;
     }
 }
@@ -52,19 +68,26 @@ export const getCurrentUniverAC = (name, price, paidPlaces, budgetPlaces, minPai
     type: 'GET-CURRENT-UNIVERS-DATA', name, price, paidPlaces, budgetPlaces, minPaidScore, minBudgetScore, foreignPlaces, students
 })
 export const placeInArreyAC = (index) => ({ type: 'SAVE_STUDENT_INDEX', index })
+const firstPageAC = () => ({ type: 'FIRST_PAGE' })
+const onLoading = () => ({ type: 'ON_LOADING' })
+const offLoading = () => ({ type: 'OFF_LOADING' })
 
 export const getUniversThunk = () => {
     return (dispatch) => {
+        dispatch(onLoading())
+        dispatch(firstPageAC())
         UniversAPI.getUnivers()
             .then(response => response.json())
             .then((university) => {
                 dispatch(setUniversAC(university.data))
+                dispatch(offLoading())
             })
     }
 }
 
 export const addUniversityThunk = (name, price, paidPlaces, budgetPlaces, minPaidScore, minBudgetScore, foreignPlaces) => {
     return (dispatch) => {
+        dispatch(onLoading())
         UniversAPI.addNewUniver(name, price, paidPlaces, budgetPlaces, minPaidScore, minBudgetScore, foreignPlaces)
             .then(() => {
                 dispatch(getUniversThunk())
@@ -74,12 +97,14 @@ export const addUniversityThunk = (name, price, paidPlaces, budgetPlaces, minPai
 
 export const getCurrentUniverThunk = (univerId) => {
     return (dispatch) => {
+        dispatch(onLoading())
         UniversAPI.showUniver(univerId)
             .then(response => response.json())
             .then((univer) => {
                 dispatch(getCurrentUniverAC(univer.data.name, univer.data.price, univer.data.paid_places,
                     univer.data.budget_places, univer.data.min_paid_score, univer.data.min_budget_score,
                     univer.data.foreign_places, univer.data.students))
+                dispatch(offLoading())
             })
     }
 }
