@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CurrentUniver from './CurrentUniver';
-import { getCurrentUniverThunk } from '../../redux/univers-reducer';
+import { getCurrentUniverThunk, placeInArreyAC } from '../../redux/univers-reducer';
 
 let mapStateToProps = (state) => {
     return {
@@ -15,5 +15,5 @@ let mapStateToProps = (state) => {
     }
 }
 
-let CurrentUniverContainer = connect(mapStateToProps, { getCurrentUniverThunk })(CurrentUniver);
+let CurrentUniverContainer = connect(mapStateToProps, { getCurrentUniverThunk, placeInArreyAC })(CurrentUniver);
 export default CurrentUniverContainer;

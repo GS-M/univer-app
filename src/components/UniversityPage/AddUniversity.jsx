@@ -27,6 +27,13 @@ class AddUniversity extends React.Component {
         }
         alert('Добавилось')
         this.props.addUniversityThunk(this.state.takeName, this.state.takePrice, this.state.takePaid, this.state.takeBudget, this.state.takeMinPaid, this.state.takeMinBudget, this.state.takeForeign)
+        this.setState({ takeName: '' })
+        this.setState({ takeBudget: '' })
+        this.setState({ takePaid: '' })
+        this.setState({ takeForeign: '' })
+        this.setState({ takeMinBudget: '' })
+        this.setState({ takeMinPaid: '' })
+        this.setState({ takePrice: '' })
     }
 
     render() {

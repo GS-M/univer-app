@@ -12,7 +12,8 @@ let initialState = {
     currentUniverMinBudgetScore: 'null',
     currentUniverForeignPlaces: 'null',
     currentUniverId: 'null',
-    firstPage: true
+    firstPage: true,
+    currentStudentIndex: 0
 }
 
 const universReducer = (state = initialState, action) => {
@@ -35,6 +36,11 @@ const universReducer = (state = initialState, action) => {
                 currentUniverMinPaidScore: action.minPaidScore,
                 currentUniverMinBudgetScore: action.minBudgetScore,
                 currentUniverForeignPlaces: action.foreignPlaces
+            };
+        case 'SAVE_STUDENT_INDEX':
+            return {
+                ...state,
+                currentStudentIndex: action.index
             }
         default: return state;
     }
@@ -45,6 +51,7 @@ export const setUniversAC = (univers) => ({ type: 'SET_UNIVERS', univers })
 export const getCurrentUniverAC = (name, price, paidPlaces, budgetPlaces, minPaidScore, minBudgetScore, foreignPlaces, students) => ({
     type: 'GET-CURRENT-UNIVERS-DATA', name, price, paidPlaces, budgetPlaces, minPaidScore, minBudgetScore, foreignPlaces, students
 })
+export const placeInArreyAC = (index) => ({ type: 'SAVE_STUDENT_INDEX', index })
 
 export const getUniversThunk = () => {
     return (dispatch) => {
@@ -76,3 +83,4 @@ export const getCurrentUniverThunk = (univerId) => {
             })
     }
 }
+

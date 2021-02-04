@@ -1,12 +1,20 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-let StudentsList = (props) => {
-    return (
-        <div>
-            <NavLink to={'/currentStudent'} key={props.id}>{props.name}</NavLink>
-        </div>
-    )
+class StudentsList extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+    setPlace = () => {
+        this.props.placeInArreyAC(this.props.place)
+    }
+    render() {
+        return (
+            <div>
+                <NavLink to={'/currentStudent'} onClick={this.setPlace} key={this.props.id}>{this.props.name}</NavLink>
+            </div >
+        )
+    }
 }
 
 export default StudentsList

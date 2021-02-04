@@ -17,7 +17,9 @@ let CurrentUniver = (props) => {
                 <li>Стоимость обучения: {props.price} руб.</li>
             </ul>
             <p>Обучающиеся студенты:</p>
-            { props.infoStudents.map(stud => <StudentsList name={stud.name} id={stud.id} key={stud.id} />)}
+
+            { props.infoStudents.map((stud, index) =>
+                (<StudentsList name={stud.name} id={stud.id} key={stud.id} place={index} placeInArreyAC={props.placeInArreyAC} />))}
         </div>
     )
 }
