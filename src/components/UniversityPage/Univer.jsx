@@ -1,7 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
-
 
 class Univer extends React.Component {
     constructor(props) {
@@ -10,10 +8,6 @@ class Univer extends React.Component {
             takeId: this.props.uni.id
         }
     }
-    // addId = (event) => {
-    //     console.log(event.target.id)
-    //     this.setState({ takeId: event.target.id })
-    // }
     sendRequest = () => {
         this.props.getCurrentUniverThunk(this.state.takeId)
     }
@@ -38,4 +32,3 @@ class Univer extends React.Component {
 }
 
 export default Univer;
-///

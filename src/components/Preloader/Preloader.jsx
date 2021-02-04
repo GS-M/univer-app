@@ -3,10 +3,6 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 class Preloader extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         if (this.props.firstPage) {
             return <Redirect to={'/university'} />

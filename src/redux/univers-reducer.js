@@ -1,4 +1,3 @@
-
 import University from "../classUniversity"
 import { UniversAPI } from "../api/api";
 let initialState = {
@@ -13,17 +12,14 @@ let initialState = {
     currentUniverMinBudgetScore: 'null',
     currentUniverForeignPlaces: 'null',
     currentUniverId: 'null',
-    ///
-    firstPage: true
+    firstPage: true,
+    currentStudentIndex: 0
 }
 
 const universReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SET_UNIVERS':
-
-            //for(let i =0; i<action.univers.length;i++)
             let newObject = action.univers.map((arr) => (arr = new University(arr.budget_places, arr.foreign_places, arr.id, arr.min_budget_score, arr.min_paid_score, arr.name, arr.paid_places, arr.price)))
-
             state.university = newObject
             return {
                 ...state,
@@ -40,6 +36,11 @@ const universReducer = (state = initialState, action) => {
                 currentUniverMinPaidScore: action.minPaidScore,
                 currentUniverMinBudgetScore: action.minBudgetScore,
                 currentUniverForeignPlaces: action.foreignPlaces
+            };
+        case 'SAVE_STUDENT_INDEX':
+            return {
+                ...state,
+                currentStudentIndex: action.index
             }
         default: return state;
     }
@@ -50,6 +51,7 @@ export const setUniversAC = (univers) => ({ type: 'SET_UNIVERS', univers })
 export const getCurrentUniverAC = (name, price, paidPlaces, budgetPlaces, minPaidScore, minBudgetScore, foreignPlaces, students) => ({
     type: 'GET-CURRENT-UNIVERS-DATA', name, price, paidPlaces, budgetPlaces, minPaidScore, minBudgetScore, foreignPlaces, students
 })
+export const placeInArreyAC = (index) => ({ type: 'SAVE_STUDENT_INDEX', index })
 
 export const getUniversThunk = () => {
     return (dispatch) => {
@@ -82,5 +84,3 @@ export const getCurrentUniverThunk = (univerId) => {
     }
 }
 
-
-// Буууууууул
