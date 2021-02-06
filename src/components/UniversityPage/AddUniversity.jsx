@@ -25,7 +25,6 @@ class AddUniversity extends React.Component {
         if (this.state.takeName === '' || this.state.takePrice === '' || this.state.takePaid === '' || this.state.takeBudget === '' || this.state.takeMinPaid === '' && this.state.takeMinBudget === '' && this.state.takeForeign) {
             return alert("Заполните все поля")
         }
-        alert('Добавилось')
         this.props.addUniversityThunk(this.state.takeName, this.state.takePrice, this.state.takePaid, this.state.takeBudget, this.state.takeMinPaid, this.state.takeMinBudget, this.state.takeForeign)
         this.setState({ takeName: '' })
         this.setState({ takeBudget: '' })
