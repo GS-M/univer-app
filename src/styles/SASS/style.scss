@@ -1,0 +1,21 @@
+@import "./preloader";
+@import "./header";
+@import "./current-univer";
+@import "./current-student";
+body {
+   a {
+      text-decoration: none;
+   }
+}
+.university {
+   font-size: 18px;
+   padding: 8px;
+   line-height: 25px;
+   a {
+      color: blueviolet;
+      &:hover {
+         color: rgb(27, 136, 69);
+         font-size: 19px;
+      }
+   }
+}

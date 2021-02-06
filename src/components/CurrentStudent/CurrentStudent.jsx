@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 let CurrentStudent = (props) => {
     return (
-        <div>
+        <div className='current-student'>
             <p>Имя: <b>{props.arrayStudents[props.place].name}</b></p>
             <p>ID студента: {props.arrayStudents[props.place].id}</p>
             <p>Деньги: {props.arrayStudents[props.place].money}</p>

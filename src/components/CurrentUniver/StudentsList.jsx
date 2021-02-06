@@ -10,7 +10,7 @@ class StudentsList extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className='current-univer__student'>
                 <NavLink to={'/currentStudent'} onClick={this.setPlace} key={this.props.id}>{this.props.name}</NavLink>
             </div >
         )

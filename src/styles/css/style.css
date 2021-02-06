@@ -1,0 +1,111 @@
+.content-blocker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(42, 21, 82, 0.9);
+  z-index: 10;
+}
+
+.loaderr {
+  position: absolute;
+  top: 50%;
+  margin-top: -4em;
+  left: 50%;
+  margin-left: -8em;
+  width: 180px;
+  height: 180px;
+  border: 18px solid rgba(226, 224, 76, 0.6);
+  border-radius: 50%;
+  border-left-color: #f3f02d;
+  -webkit-animation: preloader 1.3s linear infinite;
+          animation: preloader 1.3s linear infinite;
+  z-index: 11;
+}
+
+@-webkit-keyframes preloader {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes preloader {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.header {
+  text-align: center;
+}
+
+.current-univer a {
+  font-size: 20px;
+  padding: 6px;
+  color: #eba235;
+}
+
+.current-univer a:hover {
+  color: #487a15;
+}
+
+.current-univer__name {
+  font-size: 30px;
+  font-style: italic;
+  color: #57505e;
+  padding: 5px;
+  margin: 20px 0px;
+}
+
+.current-univer__title {
+  margin: 10px 0px;
+}
+
+.current-univer__info {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.current-univer__student {
+  padding: 5px;
+  color: darkblue;
+}
+
+.current-student {
+  margin: 12px;
+  font-size: 16px;
+}
+
+.current-student a {
+  font-size: 18px;
+}
+
+.current-student a:hover {
+  color: #487a15;
+}
+
+.current-student b {
+  font-size: 18px;
+}
+
+body a {
+  text-decoration: none;
+}
+
+.university {
+  font-size: 18px;
+  padding: 8px;
+  line-height: 25px;
+}
+
+.university a {
+  color: blueviolet;
+}
+
+.university a:hover {
+  color: #1b8845;
+  font-size: 19px;
+}

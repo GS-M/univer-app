@@ -1,0 +1,13 @@
+.current-student {
+   margin: 12px;
+   font-size: 16px;
+   a {
+      font-size: 18px;
+      &:hover {
+         color: rgb(72, 122, 21);
+      }
+   }
+   b {
+      font-size: 18px;
+   }
+}
